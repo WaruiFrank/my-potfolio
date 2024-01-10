@@ -64,7 +64,7 @@ class Base {
 
                     <script type="text/javascript">
                         // redirect to newsletter section
-                        location.href = '<?php echo admin_url('admin.php?page=metform-menu-settings#mf-newsletter_integration'); ?>';
+                        location.href = '<?php echo esc_url(admin_url('admin.php?page=metform-menu-settings#mf-newsletter_integration')); ?>';
                     </script>
 
                     <?php

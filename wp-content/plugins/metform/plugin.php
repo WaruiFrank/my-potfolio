@@ -25,7 +25,7 @@ final class Plugin {
 
     public function version()
     {
-        return '3.8.0';
+        return '3.8.2';
     }
 
     public function package_type()

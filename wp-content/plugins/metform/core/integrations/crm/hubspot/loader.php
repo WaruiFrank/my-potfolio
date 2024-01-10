@@ -73,6 +73,7 @@ class Integration
 
     public function contents()
     {
+
         $data = [
             'lable' => esc_html__('Token', 'metform'),
             'name' => 'mf_hubsopt_token',
@@ -84,41 +85,45 @@ class Integration
         $current_page = isset($_GET["page"]) ? admin_url("admin.php?page=" . sanitize_text_field(wp_unslash($_GET["page"]))) : '';
         $settings_option = \MetForm\Core\Admin\Base::instance()->get_settings_option();
 
-        if(isset($_GET['redirect_nonce_url']) && !wp_verify_nonce(sanitize_text_field(wp_unslash($_GET['redirect_nonce_url'])))){
-            die("You are not allowed to view the page.");
-        }
+        $build_redirect = [
+            'redirect_url'  => $current_page,
+            'section_id'    => $section_id,
+            'state'         => wp_create_nonce('redirect_nonce_url')
+        ];
 
-        if (
-            isset($_GET['refresh_token']) &&
-            isset($_GET['token_type']) &&
-            isset($_GET['access_token']) &&
-            isset($_GET['expires_in'])
-        ) {
-            $token_type    = sanitize_text_field(wp_unslash($_GET['token_type']));
-            $refresh_token = sanitize_text_field(wp_unslash($_GET['refresh_token']));
-            $access_token  = sanitize_text_field(wp_unslash($_GET['access_token']));
-            $expires_in    = sanitize_text_field(wp_unslash($_GET['expires_in']));
+        if(isset($_GET['state']) && wp_verify_nonce(sanitize_text_field(wp_unslash($_GET['state'])), 'redirect_nonce_url')){
+          
+            if (isset($_GET['refresh_token']) &&
+                isset($_GET['token_type']) &&
+                isset($_GET['access_token']) &&
+                isset($_GET['expires_in'])) {
 
-            $settings_option['mf_hubsopt_token'] = $access_token;
-            $settings_option['mf_hubsopt_refresh_token'] = $refresh_token;
-            $settings_option['mf_hubsopt_token_type'] = $token_type;
-            $settings_option['mf_hubsopt_expires_in'] = $expires_in;
+                    $token_type    = sanitize_text_field(wp_unslash($_GET['token_type']));
+                    $refresh_token = sanitize_text_field(wp_unslash($_GET['refresh_token']));
+                    $access_token  = sanitize_text_field(wp_unslash($_GET['access_token']));
+                    $expires_in    = sanitize_text_field(wp_unslash($_GET['expires_in']));
 
-            // Save the results in a transient named latest_5_posts
-            set_transient('mf_hubsopt_token_transient', $access_token, $expires_in);
+                    $settings_option['mf_hubsopt_token'] = $access_token;
+                    $settings_option['mf_hubsopt_refresh_token'] = $refresh_token;
+                    $settings_option['mf_hubsopt_token_type'] = $token_type;
+                    $settings_option['mf_hubsopt_expires_in'] = $expires_in;
 
-            // Update settings options
-            update_option('metform_option__settings', $settings_option);
+                    // Save the results in a transient named latest_5_posts
+                    set_transient('mf_hubsopt_token_transient', $access_token, $expires_in);
 
-            echo '
-                <script type="text/javascript">
-                    window.location.href = "' . esc_js($current_page ."&redirect_nonce_url=".wp_create_nonce() ).'#mf_crm";
-                </script>
-            ';
+                    // Update settings options
+                    update_option('metform_option__settings', $settings_option);
+
+                    echo '
+                        <script type="text/javascript">
+                            window.location.href = "' . esc_js($current_page) .'#mf_crm"
+                        </script>
+                    ';
+            }
         }
 
         if (!empty($settings_option['mf_hubsopt_token'])) {
-?>
+        ?>
             <div class="mf-hubspot-hidden-input-field hidden">
                 <?php
                 $data = [
@@ -165,7 +170,7 @@ class Integration
                 <p><?php esc_html_e('HubSpot is an all-in-one CRM and marketing platform that helps turn your website visitors into leads, leads into customers, and customers into raving fans.', 'metform'); ?></p>
                 <p><?php esc_html_e('With MetForm, you can sync your form submissions seamlessly to HubSpot to build lists, email marketing campaigns and so much more.', 'metform'); ?></p>
                 <p><?php esc_html_e('If you don\'t already have a HubSpot account, you can', 'metform'); ?> <a href="https://app.hubspot.com/signup-hubspot/marketing?utm_source=MetForm&utm_medium=Forms&utm_campaign=Plugin" target="_blank"><?php esc_html_e('sign up for a free HubSpot account here.', 'metform'); ?></a></p>
-                <a href="<?php echo esc_url('https://api.wpmet.com/public/hubspot-auth/?redirect_url=' . $current_page . '&section_id=' . $section_id); ?>" class="mf-admin-setting-btn fatty"><?php esc_html_e('Click Here To Connect Your HubSpot Account', 'metform'); ?></a>
+                <a href="<?php echo esc_url('https://api.wpmet.com/public/hubspot-auth?'.http_build_query($build_redirect)); ?>" class="mf-admin-setting-btn fatty"><?php esc_html_e('Click Here To Connect Your HubSpot Account', 'metform'); ?></a>
             </div>
 <?php }
     }

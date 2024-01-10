@@ -1,10 +1,10 @@
 # Copyright (C) 2023 Wpmet
-# This file is distributed under the GPL-2.0+.
+# This file is distributed under the GPLv3.
 msgid ""
 msgstr ""
-"Project-Id-Version: MetForm 3.8.0\n"
+"Project-Id-Version: MetForm 3.8.2\n"
 "Report-Msgid-Bugs-To: https://wordpress.org/support/plugin/metform\n"
-"POT-Creation-Date: 2023-11-07 10:01:54+00:00\n"
+"POT-Creation-Date: 2023-12-18 10:35:08+00:00\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -153,7 +153,7 @@ msgid "All General info here"
 msgstr ""
 
 #: core/admin/views/settings.php:41 core/admin/views/settings.php:458
-#: core/entries/meta-data.php:389 core/forms/views/modal-editor.php:23
+#: core/entries/meta-data.php:387 core/forms/views/modal-editor.php:23
 msgid "Payment"
 msgstr ""
 
@@ -812,7 +812,7 @@ msgid "You are trying to upload wrong file!"
 msgstr ""
 
 #: core/entries/action.php:121
-msgid "%s %s already exist."
+msgid "%1$s %2$s already exist."
 msgstr ""
 
 #: core/entries/action.php:145 core/entries/action.php:153
@@ -1036,7 +1036,7 @@ msgstr ""
 msgid "Type:"
 msgstr ""
 
-#: core/entries/form-data.php:388 core/entries/meta-data.php:285
+#: core/entries/form-data.php:388 core/entries/meta-data.php:283
 msgid "Download"
 msgstr ""
 
@@ -1090,71 +1090,71 @@ msgstr ""
 msgid "PDF Export"
 msgstr ""
 
-#: core/entries/meta-data.php:66
+#: core/entries/meta-data.php:64
 msgid "Info"
 msgstr ""
 
-#: core/entries/meta-data.php:89
+#: core/entries/meta-data.php:87
 msgid "Form Name "
 msgstr ""
 
-#: core/entries/meta-data.php:95
+#: core/entries/meta-data.php:93
 msgid "Entry ID"
 msgstr ""
 
-#: core/entries/meta-data.php:106
+#: core/entries/meta-data.php:104
 msgid "Entry By"
 msgstr ""
 
-#: core/entries/meta-data.php:117
+#: core/entries/meta-data.php:115
 msgid "Visitor"
 msgstr ""
 
-#: core/entries/meta-data.php:140
+#: core/entries/meta-data.php:138
 msgid "Data"
 msgstr ""
 
-#: core/entries/meta-data.php:143
+#: core/entries/meta-data.php:141
 msgid "Quiz Data"
 msgstr ""
 
-#: core/entries/meta-data.php:171
+#: core/entries/meta-data.php:169
 msgid "Browser Data"
 msgstr ""
 
-#: core/entries/meta-data.php:203
+#: core/entries/meta-data.php:201
 msgid "Browser data not captured."
 msgstr ""
 
-#: core/entries/meta-data.php:217
+#: core/entries/meta-data.php:215
 msgid "Files"
 msgstr ""
 
-#: core/entries/meta-data.php:286
+#: core/entries/meta-data.php:284
 msgid "View"
 msgstr ""
 
-#: core/entries/meta-data.php:288
+#: core/entries/meta-data.php:286
 msgid "This file is not uploaded."
 msgstr ""
 
-#: core/entries/meta-data.php:327
+#: core/entries/meta-data.php:325
 msgid "Woocommerce Checkout"
 msgstr ""
 
-#: core/entries/meta-data.php:350
+#: core/entries/meta-data.php:348
 msgid "Order ID "
 msgstr ""
 
-#: core/entries/meta-data.php:356
+#: core/entries/meta-data.php:354
 msgid "Order Status"
 msgstr ""
 
-#: core/entries/meta-data.php:363
+#: core/entries/meta-data.php:361
 msgid "Total"
 msgstr ""
 
-#: core/entries/meta-data.php:373
+#: core/entries/meta-data.php:371
 msgid "Order Details"
 msgstr ""
 
@@ -1899,76 +1899,76 @@ msgstr ""
 msgid "HubSpot"
 msgstr ""
 
-#: core/integrations/crm/hubspot/loader.php:77
-#: core/integrations/crm/hubspot/loader.php:125
+#: core/integrations/crm/hubspot/loader.php:78
+#: core/integrations/crm/hubspot/loader.php:130
 #: core/integrations/onboard/views/settings-sections/usersettings.php:33
 msgid "Token"
 msgstr ""
 
-#: core/integrations/crm/hubspot/loader.php:80
+#: core/integrations/crm/hubspot/loader.php:81
 msgid "Enter HubSpot token here"
 msgstr ""
 
-#: core/integrations/crm/hubspot/loader.php:128
+#: core/integrations/crm/hubspot/loader.php:133
 msgid "Enter Hubsopt token here"
 msgstr ""
 
-#: core/integrations/crm/hubspot/loader.php:133
+#: core/integrations/crm/hubspot/loader.php:138
 msgid "Refresh Token"
 msgstr ""
 
-#: core/integrations/crm/hubspot/loader.php:136
+#: core/integrations/crm/hubspot/loader.php:141
 msgid "Enter Hubsopt refresh token here"
 msgstr ""
 
-#: core/integrations/crm/hubspot/loader.php:141
+#: core/integrations/crm/hubspot/loader.php:146
 msgid "Token Tyoe"
 msgstr ""
 
-#: core/integrations/crm/hubspot/loader.php:144
+#: core/integrations/crm/hubspot/loader.php:149
 msgid "Enter Hubsopt token type here"
 msgstr ""
 
-#: core/integrations/crm/hubspot/loader.php:149
+#: core/integrations/crm/hubspot/loader.php:154
 msgid "Token Expires In"
 msgstr ""
 
-#: core/integrations/crm/hubspot/loader.php:152
+#: core/integrations/crm/hubspot/loader.php:157
 msgid "Enter Hubsopt token expires in here"
 msgstr ""
 
-#: core/integrations/crm/hubspot/loader.php:158
+#: core/integrations/crm/hubspot/loader.php:163
 msgid ""
 "Your HubSpot account is now connected with Metform! You can remove the "
 "access anytime using the below button."
 msgstr ""
 
-#: core/integrations/crm/hubspot/loader.php:159
+#: core/integrations/crm/hubspot/loader.php:164
 msgid "Disconnect HubSpot Account"
 msgstr ""
 
-#: core/integrations/crm/hubspot/loader.php:165
+#: core/integrations/crm/hubspot/loader.php:170
 msgid ""
 "HubSpot is an all-in-one CRM and marketing platform that helps turn your "
 "website visitors into leads, leads into customers, and customers into "
 "raving fans."
 msgstr ""
 
-#: core/integrations/crm/hubspot/loader.php:166
+#: core/integrations/crm/hubspot/loader.php:171
 msgid ""
 "With MetForm, you can sync your form submissions seamlessly to HubSpot to "
 "build lists, email marketing campaigns and so much more."
 msgstr ""
 
-#: core/integrations/crm/hubspot/loader.php:167
+#: core/integrations/crm/hubspot/loader.php:172
 msgid "If you don't already have a HubSpot account, you can"
 msgstr ""
 
-#: core/integrations/crm/hubspot/loader.php:167
+#: core/integrations/crm/hubspot/loader.php:172
 msgid "sign up for a free HubSpot account here."
 msgstr ""
 
-#: core/integrations/crm/hubspot/loader.php:168
+#: core/integrations/crm/hubspot/loader.php:173
 msgid "Click Here To Connect Your HubSpot Account"
 msgstr ""
 
@@ -2834,7 +2834,7 @@ msgid "Warning message"
 msgstr ""
 
 #: traits/common-controls.php:250 widgets/checkbox/checkbox.php:441
-#: widgets/date/date.php:561 widgets/email/email.php:247
+#: widgets/date/date.php:563 widgets/email/email.php:247
 #: widgets/file-upload/file-upload.php:491
 #: widgets/gdpr-consent/gdpr-consent.php:485
 #: widgets/listing-fname/listing-fname.php:163

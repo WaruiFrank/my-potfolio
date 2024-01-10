@@ -29,7 +29,6 @@ class Meta_Data
         add_action('add_meta_boxes', [$this, 'add_browser_data_cmb']);
         add_action('add_meta_boxes', [$this, 'add_file_upload_cmb']);
         add_action('admin_init', [$this, 'show_hide_payment_woo_meta_box']);
-        
     }
 
 
@@ -54,7 +53,6 @@ class Meta_Data
         if($getWooCheckoutStatus){
             add_action('add_meta_boxes', [$this, 'add_woo_payment_status_cmb']);
         }
-        
     }
 
     function add_form_id_cmb()

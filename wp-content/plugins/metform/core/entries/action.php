@@ -118,7 +118,7 @@ class Action
             if($validated_data['status'] === 1){
                 $this->response->status = 0;
                 $this->response->error = [];
-                $this->response->error[0] = sprintf(esc_html__('%s %s already exist.', 'metform'), $validated_data['input_label'], $validated_data['duplicate_field']);
+                $this->response->error[0] = sprintf(esc_html__('%1$s %2$s already exist.', 'metform'), $validated_data['input_label'], $validated_data['duplicate_field']);
                 return $this->response;
             }
         }

@@ -1,12 +1,12 @@
 === Metform Elementor Contact Form Builder===
 Contributors: xpeedstudio, ataurr, emranio
 Tags: Form builder, contact form, Elementor contact form, contact form builder, Elementor forms builder, booking form builder, registration form builder, feedback form builder, drag and drop builder
-Requires at least: 4.8
-Tested up to: 6.3
-Stable tag: 3.8.0
+Requires at least: 5.0
+Tested up to: 6.4
+Stable tag: 3.8.2
 Requires PHP: 7.4
-License: GPLv2 or later
-License URI: https://www.gnu.org/licenses/gpl-2.0.html
+License: GPLv3
+License URI: https://www.gnu.org/licenses/gpl-3.0.txt
 
 Metform is the ultimate Elementor forms builder. With this quick contact form builder, you can build any kind of fast and secure contact form. It is a drag and drop builder that also functions great as a booking form builder, registration form builder, calculation form builder, feedback form builder, etc. Moreover, you can customize all your forms with the Elementor builder based on your preferences.
 
@@ -343,9 +343,18 @@ Check out [Tutorials, Tips & Tricks](https://wpmet.com/blog)! 👌
 
 == Changelog == 
 
+Version: 3.8.2 // 2023-12-18
+Improved: Security
+
+Version: 3.8.1 // 2023-12-11
+Added: New control for minimum fraction count of Calculation widget.
+Fixed: 24 hours time format issue for Date widget.
+Fixed: Google re-captcha issue for multiple forms in same page.
+Fixed: HubSpot integration issue with GDPR Consent and Opt in (Listing) widgets.
+
 Version: 3.8.0 // 2023-11-05
 Improved: File size limit control for file upload widget.
-Fixed: Meta box issue in form entires.
+Fixed: Meta box issue in form entries.
 Fixed: Image selecting issue of image widget.
 
 Version: 3.7.0 // 2023-10-18

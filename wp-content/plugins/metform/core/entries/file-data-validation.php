@@ -247,6 +247,5 @@ class File_Data_Validation
                 }
             }
             return self::$response;
-      
     }
 }

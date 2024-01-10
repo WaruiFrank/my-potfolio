@@ -98,19 +98,31 @@ class Hubspot
         $gu_id = get_option('mf_hubspot_form_guid_'.$form_id);
         $dd = get_option('mf_hubspot_form_data_' . $form_id);
         $data = [];
+
+        $map_data = \MetForm\Core\Entries\Action::instance()->get_fields($form_id);        
+		$gdpr_consent = \MetForm\Core\Entries\Action::instance()->get_input_name_by_widget_type('mf-gdpr-consent', $map_data);
+        $wpt_opt = \MetForm\Core\Entries\Action::instance()->get_input_name_by_widget_type('mf-listing-optin', $map_data);        
         foreach($dd as $d){
             foreach($d as $key => $value){
-                $k = str_replace('mf_hubspot_form_field_name_','',$key);
                 if(isset($form_data[$value])){
-                    array_push($data,[
-                        'name' => $k,
-                        'value' => $form_data[$value]
-                    ]);
-                }
+                    $k = str_replace('mf_hubspot_form_field_name_','',$key);
+                    if ((isset($gdpr_consent[0]) && $value == $gdpr_consent[0]) || (isset($wpt_opt[0]) && $value == $wpt_opt[0])) {                        
+                        array_push($data,[
+                            'name' => $k,
+                            'value' => $form_data[$value] == 'Accepted'? 'true':'false'
+                        ]);
+                    
+                    }else{
+                        array_push($data,[
+                            'name' => $k,
+                            'value' => $form_data[$value]
+                        ]);
+                    }
+                  }
             }
-        }
+        }        
         $api_url = 'https://api.hsforms.com/submissions/v3/integration/submit/' . $portal_id . '/' . $gu_id;
-        $body = json_encode(['fields' => $data]);
+        $body = json_encode(['fields' => $data]);       
         try{
             $response = wp_remote_post(
                 $api_url,
